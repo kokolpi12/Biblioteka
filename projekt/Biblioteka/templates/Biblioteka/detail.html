@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>{{ book.title }}</h1>
+    <table>
+        <tr>
+            <td>Autor: </td>
+            <td>{{book.author}}</td>
+        </tr>
+        <tr>
+            <td>Okładka: </td>
+            <td>{{book.cover}}</td>
+        </tr>
+        <tr>
+            <td>Wydawnictwo: </td>
+            <td>{{book.publisher}}</td>
+        </tr>
+        <tr>
+            <td>Data premiery: </td>
+            <td>{{book.premiere_date}}</td>
+        </tr>
+        <tr>
+            <td>Data publikacji: </td>
+            <td>{{book.pub_date}}</td>
+        </tr>
+            <td>Liczba stron: </td>
+            <td>{{book.number_of_pages}}</td>
+        </tr>
+        <tr>
+            <td>Użytkownik: </td>
+            <td>{{book.user}}</td>
+        </tr>
+        <tr>
+            <td>Zdjęcie: </td>
+            <td class="photo"><img src="{{book.photo.url}}"></td>
+        </tr>
+    </table>
+
+    <a href="{% url 'edit' pk=book.pk %}">Edytuj ksiażkę</a>
+
+{% endblock %}

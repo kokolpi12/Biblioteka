@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Książki{% endblock %}
+
+{% block content %}
+
+    <div>
+        
+        {% if latest_book_list %}
+            <table>
+            <th>Wszystkie książki</th>
+            {% for book in latest_book_list %}
+                {% if book.deleted == False %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'detail' book.id %}">{{ book.title }}</a>
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </table>
+        {% else %}
+            <p>Nie ma dostepnych książek</p>
+        {% endif %}
+    
+    </div>
+
+    <div>
+
+        {% if latest_book_list %}
+            <table>
+            <th colspan="2">Twoje książki</th>
+            {% for book in user_book_list %}
+                {% if book.deleted == False %}
+                    {% if book.user.username == request.user.username %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'detail' book.id %}">{{ book.title }}</a>
+                            </td>
+                            <td>
+                                <a href="{#}">Usuń</a>
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            </table>
+        {% else %}
+            <p>Nie masz jeszcze książek</p>
+        {% endif %}
+
+    </div>
+
+    <div class="form">
+        <a href="{% url 'book_new' %}">DODAJ KSIĄŻKĘ</a>
+    </div>
+
+{% endblock %}
