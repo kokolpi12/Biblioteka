@@ -37,6 +37,11 @@
         </tr>
     </table>
 
-    <a href="{% url 'edit' pk=book.pk %}">Edytuj ksiażkę</a>
+    {% if user.is_authenticated %}
+        {% if book.user == request.user %}
+            <a href="{% url 'edit' pk=book.pk %}">Edytuj ksiażkę</a><br>
+            <a href="{% url 'delete' pk=book.pk %}">Usuń książkę</a>
+        {% endif %}
+    {% endif %}
 
 {% endblock %}

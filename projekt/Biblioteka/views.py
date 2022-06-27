@@ -28,9 +28,10 @@ def user_login(request):
             form = LoginForm()
     return render(request, 'Biblioteka/account/login.html', {'form': form})
 
-@login_required
 def dashboard(request):
-    return render(request, 'Biblioteka/account/dashboard.html', {'section': 'dashborad'})
+    return render(request, 
+                    'Biblioteka/account/dashboard.html', 
+                    {'section': 'dashborad'})
 
 def register(request):
     user_form = UserRegistrationForm()
@@ -50,7 +51,7 @@ def register(request):
 def books(request):
     latest_book_list = Book.objects.order_by('-pub_date')
     user_book_list = Book.objects.order_by('-user')
-    context = {'latest_book_list': latest_book_list, 'user_book_list' : user_book_list, 'section': 'base'}
+    context = {'latest_book_list': latest_book_list, 'user_book_list' : user_book_list}
     return render(request, 'Biblioteka/all_books.html', context)
 
 @login_required
@@ -82,10 +83,30 @@ def edit(request, pk):
     if request.method == "POST":
         form = BookForm(request.POST, request.FILES, instance=book)
         if form.is_valid():
-            book = form.save(commit=False)
-            book.user = request.user
-            book.save()
-            return render(request, 'Biblioteka/detail.html', {'book': book})
+            if request.user == book.user:
+                book = form.save(commit=False)
+                book.user = request.user
+                book.save()
+                return render(request, 'Biblioteka/detail.html', {'book': book})
+            else:
+                return HttpResponse('To nie twoja książka.')
     else:
         form = BookForm(instance=book)
     return render(request, 'Biblioteka/account/edit.html', {'form': form})
+
+@login_required
+def delete(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    if request.method == "POST":
+        form = BookFormDelete(request.POST, instance=book)
+        if form.is_valid():
+            if request.user == book.user:
+                book = form.save(commit=False)
+                book.user = request.user
+                book.save()
+                return render(request, 'Biblioteka/all_books.html', {'book': book})
+            else:
+                return HttpResponse('To nie twoja książka.')
+    else:
+        form = BookFormDelete(instance=book)
+    return render(request, 'Biblioteka/account/del.html', {'form': form})

@@ -1,37 +1,57 @@
 {% load static %}
 
 <!DOCTYPE html>
+<html lang="en">
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
         <title>{% block title %}{% endblock %}</title>
         <link href="{% static 'css/base.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     </head>
     <body>
-        <div id="header">
-            <span class="logo"><a href="{% url 'dashboard' %}">Biblioteka</a></span>
-            {% if request.user.is_authenticated %}
-                <ul class="menu">
-                    <li {% if section == 'dashboard' %}class="selected"{% endif %}>
-                        <a href="{% url 'dashboard' %}">Panel główny</a>
-                    </li>
-                    <li {% if section == 'books' %}class="selected"{% endif %}>
-                        <a href="{% url 'books' %}">Wszystkie książki</a>
-                    </li>
-                </ul>
-            {% endif %}
-            
-            <span class="user">
+        <div class="container">    
+            <div class="banner">
+                <img src="media/logo.png" alt="logo">
+            </div>
+            <div id="header">
+                    <div class="menu">
+                        <div {% if section == 'dashboard' %}class="selected" 
+                                {% else %} class="nav" {% endif %}>
+                            <a href="{% url 'dashboard' %}">Panel główny</a>
+                        </div>
+                        <div {% if section == 'books' %}class="selected" 
+                                {% else %} class="nav" {% endif %}>
+                            <a href="{% url 'books' %}">Wszystkie książki</a>
+                        </div>
+                    </div>
+            </div>
+            <div id="user_login">
                 {% if request.user.is_authenticated %}
                     Witaj, {{ request.user.first_name }}!
                     <a href="{% url 'logout' %}">Wyloguj</a>
                 {% else %}
                     <a href="{% url 'login' %}">Zaloguj</a>
                 {% endif %}
-            </span>
-        </div>
-        <div id="content">
-            {% block content %}
-            {% endblock %}
+            </div>
+            <div id="content">
+                {% block content %}
+                    <div class="welcome">
+                        Witamy w bibliotece!!!
+                    </div>
+                {% endblock %}
+            </div>
+            <div id="footer">
+                {% block footer %}
+
+                    <p>Stronę wykonał: Łukasz Dzietczyk</p>
+
+                {% endblock %}
+            </div>
         </div>
     </body>
 </html>

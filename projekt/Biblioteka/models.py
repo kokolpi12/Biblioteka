@@ -21,7 +21,7 @@ class Book(models.Model):
         'Okładka',
         max_length=30,
         choices=Cover,
-        default='T',
+        default='Miękka',
     )
     publisher = models.CharField(
         'Wydawnictwo',

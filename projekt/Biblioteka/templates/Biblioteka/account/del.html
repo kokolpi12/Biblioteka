@@ -6,7 +6,7 @@
     <h1>Usuwanie książki</h1>
     <p>Możesz usunąć książkę za pomocą poniższego formularza:</p>
     <form action="." method="post" enctype="multipart/form-data">
-        {{ book_del.as_p }}
+        {{ form.as_p }}
         {% csrf_token %}
         <p><input type="submit" value="Zapisz zmiany"></p>
     </form>

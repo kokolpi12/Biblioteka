@@ -1,0 +1,146 @@
+*{
+
+    font-weight: bold;
+}
+p{
+
+    margin: 10px;
+}
+button{
+
+    color: black;
+}
+#header a{
+
+    text-decoration: none;
+}
+#user_login a{
+
+    color: white;
+    text-decoration: none;
+}
+
+.books{
+
+    float: left;
+    width: 50%;
+    height: auto;
+    background-color: lightgray;
+    min-height: 200px;
+}
+.books td, th{
+
+    border: solid blue 3px;
+    padding: 5px;
+    font-weight: 600;
+}
+.books th{
+
+    text-align: center;
+    font-size: 150%;
+    
+}
+.books a:hover{
+
+    color: red;
+    text-decoration: none;
+}
+.books a{
+
+    text-decoration: none;
+}
+.books table{
+
+    margin: 0px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+#user_login{
+
+    float: left;
+    width: 20%;
+    height: 100px;
+    background-color: gray;
+}
+
+#header{
+
+    float: left;
+    width: 65%;
+    height: 100px;
+    background-color: grey;
+}
+.banner{
+
+    width: 15%;
+    background-color: gray;
+    float: left;
+    height: 100px;
+}
+
+#content{
+
+    clear: both;
+    width: 100%;
+    background-color: lightgray;
+}
+
+.selected{
+
+    float: left;
+    padding: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 50px;
+    width: 150px;
+}
+.selected a{
+
+    color: red;
+}
+.nav{
+
+    float: left;
+    padding: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 50px;
+    width: 150px;
+}
+.nav a{
+
+    color: white;
+}
+
+#footer{
+
+    background-color: gray;
+    color: white;
+}
+
+@media only screen and (max-width: 720px){
+    .container{
+
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    width: auto;
+}
+
+.welcome{
+
+    min-height: 300px;
+    text-align: center;
+}

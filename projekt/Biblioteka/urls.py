@@ -15,9 +15,9 @@ urlpatterns = [
     # ex: Wszystkie książki
     path('books/', views.books, name='books'),
     # ex: Edycja książki
-     path('<int:pk>/edit/', views.edit, name='edit'),
-    # ex: usuwanie książki
-    #path('books/del/', views.delete, name='delete'),
+    path('<int:pk>/edit/', views.edit, name='edit'),
+    # ex: Usuwanie książki
+    path('<int:pk>/delete/', views.delete, name='delete'),
     
     # Widoki logowania
     # ex: Rejestracja użytkownika
