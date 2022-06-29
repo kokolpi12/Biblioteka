@@ -144,3 +144,17 @@ img{
     min-height: 300px;
     text-align: center;
 }
+
+.form{
+
+    margin: 10px;
+}
+
+.edit a{
+
+    color: black;
+}
+.edit a:hover{
+
+    color: aliceblue;
+}

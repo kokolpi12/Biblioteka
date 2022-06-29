@@ -2,8 +2,8 @@
 
 {% block content %}
 
-    <h1>{{ book.title }}</h1>
-    <table>
+    <h1 class="form">{{ book.title }}</h1>
+    <table class="form">
         <tr>
             <td>Autor: </td>
             <td>{{book.author}}</td>
@@ -28,7 +28,7 @@
             <td>{{book.number_of_pages}}</td>
         </tr>
         <tr>
-            <td>Użytkownik: </td>
+            <td>Dodane przez: </td>
             <td>{{book.user}}</td>
         </tr>
         <tr>
@@ -39,8 +39,12 @@
 
     {% if user.is_authenticated %}
         {% if book.user == request.user %}
-            <a href="{% url 'edit' pk=book.pk %}">Edytuj ksiażkę</a><br>
-            <a href="{% url 'delete' pk=book.pk %}">Usuń książkę</a>
+            <button type="button" class="btn btn-success form edit">
+                <a href="{% url 'edit' pk=book.pk %}">Edytuj ksiażkę</a>
+            </button><br>
+            <button type="button" class="btn btn-danger form edit">
+                <a href="{% url 'delete' pk=book.pk %}">Usuń książkę</a>
+            </button>
         {% endif %}
     {% endif %}
 

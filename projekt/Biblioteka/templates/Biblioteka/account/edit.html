@@ -3,11 +3,11 @@
 {% block title %}Edycja ksiażki{% endblock %}
 
 {% block content %}
-    <h1>Edycja książki</h1>
-    <p>Dane książki możesz zmienić za pomocą poniższego formularza:</p>
-    <form action="." method="post" enctype="multipart/form-data">
+    <h1 class="form">Edycja książki</h1>
+    <p class="form">Dane książki możesz zmienić za pomocą poniższego formularza:</p>
+    <form action="." method="post" enctype="multipart/form-data" class="form">
         {{ form.as_p }}
         {% csrf_token %}
-        <p><input type="submit" value="Zapisz zmiany"></p>
+        <p><input type="submit" value="Zapisz zmiany" class="btn btn-success form edit"></p>
     </form>
 {% endblock %}
