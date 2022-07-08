@@ -5,7 +5,6 @@ from .models                        import Book
 from django.shortcuts               import redirect
 from django.contrib.auth            import authenticate, login
 from django.contrib.auth.decorators import login_required
-import PIL.Image 
 
 def base(request):
     return render(request, 'base.html', {})
