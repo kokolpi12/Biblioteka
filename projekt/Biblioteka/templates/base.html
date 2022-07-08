@@ -15,9 +15,11 @@
     </head>
     <body>
         <div class="container">    
-            <div class="banner">
-                <img src="media/logo.png" alt="logo">
-            </div>
+            <a href="{% url 'dashboard' %}">
+                <div class="banner">
+                
+                </div>
+            </a>
             <div id="header">
                     <div class="menu">
                         <div {% if section == 'dashboard' %}class="selected" 

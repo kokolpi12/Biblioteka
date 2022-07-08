@@ -5,6 +5,7 @@ from .models                        import Book
 from django.shortcuts               import redirect
 from django.contrib.auth            import authenticate, login
 from django.contrib.auth.decorators import login_required
+import PIL.Image 
 
 def base(request):
     return render(request, 'base.html', {})
@@ -104,7 +105,7 @@ def delete(request, pk):
                 book = form.save(commit=False)
                 book.user = request.user
                 book.save()
-                return render(request, 'Biblioteka/all_books.html', {'book': book})
+                return render(request, 'Biblioteka/account/del_done.html', {'book': book})
             else:
                 return HttpResponse('To nie twoja książka.')
     else:
