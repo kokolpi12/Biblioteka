@@ -128,7 +128,7 @@ button{
     color: white;
 }
 
-@media only screen and (max-width: 720px){
+@media only screen and (min-width: 721px){
     .container{
 
         width: 100%;
@@ -150,7 +150,7 @@ img{
 }
 
 .form{
-
+    
     margin: 10px;
 }
 

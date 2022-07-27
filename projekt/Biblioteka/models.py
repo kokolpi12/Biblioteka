@@ -41,7 +41,7 @@ class Book(models.Model):
         settings.AUTH_USER_MODEL, 
         on_delete=models.CASCADE,
     )
-    photo = models.ImageField(
+    photo = models.FileField(
         'Zdjęcie',
         upload_to='images',
         blank=True,
