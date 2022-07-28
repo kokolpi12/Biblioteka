@@ -172,8 +172,7 @@ img{
 
 .update{
 
-    float: left;
     color: red;
-    text-align: center;
+    text-align: left;
     margin-left: 20px;
 }
