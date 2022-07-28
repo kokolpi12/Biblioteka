@@ -50,7 +50,36 @@
             <div id="footer">
                 {% block footer %}
 
-                    <p>Stronę wykonał: Łukasz Dzietczyk</p>
+                    <div class="foot">
+                        <p>Stronę wykonał: Łukasz Dzietczyk</p>
+                    </div>
+                    <div class="foot">
+                        <button id="dark">Dark mode</button>
+                        <script>
+
+                            const x = document.getElementById('dark');
+                            let y = document.getElementsByTagName('body')[0];
+
+                            x.addEventListener("click", darkmode);
+
+                            function lightmode(){
+
+                                y.style.backgroundColor = "white";
+                                x.innerHTML = "Dark mode";
+                                x.removeEventListener("click", lightmode);
+                                x.addEventListener("click", darkmode);
+                            }
+
+                            function darkmode(){
+
+                                y.style.backgroundColor = "black";
+                                x.innerHTML = "Light mode";
+                                x.removeEventListener("click", darkmode);
+                                x.addEventListener("click", lightmode);
+                            }
+
+                        </script>
+                    </div>
 
                 {% endblock %}
             </div>
