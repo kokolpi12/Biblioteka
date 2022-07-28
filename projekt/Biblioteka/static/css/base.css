@@ -174,4 +174,6 @@ img{
 
     float: left;
     color: red;
+    text-align: center;
+    margin-left: 20px;
 }
