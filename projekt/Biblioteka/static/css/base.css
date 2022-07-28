@@ -169,3 +169,9 @@ img{
     color: black;
     float: right;
 }
+
+.update{
+
+    float: left;
+    color: red;
+}
