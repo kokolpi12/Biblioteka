@@ -48,6 +48,7 @@
                         <p>28.07.2022r.</p>
                         <p>Dodano dark mode</p>
                         <p>Prosze odświeżyć stronę przy pomocy Shift + F5, żeby wszystko popprawnie działało</p>
+                        <p>Nastepny upadte, będzie dotyczył zapisywania dark mode w cookies</p>
                     </div>
                 {% endblock %}
             </div>
@@ -59,30 +60,30 @@
                     </div>
                     <div class="foot">
                         <button id="dark">Dark mode</button>
-                        <script>
+    <script>
 
-                            const x = document.getElementById('dark');
-                            let y = document.getElementsByTagName('body')[0];
+        const x = document.getElementById('dark');
+        let y = document.getElementsByTagName('body')[0];
 
-                            x.addEventListener("click", darkmode);
+        x.addEventListener("click", darkmode);
 
-                            function lightmode(){
+        function lightmode(){
 
-                                y.style.backgroundColor = "white";
-                                x.innerHTML = "Dark mode";
-                                x.removeEventListener("click", lightmode);
-                                x.addEventListener("click", darkmode);
-                            }
+            y.style.backgroundColor = "white";
+            x.innerHTML = "Dark mode";
+            x.removeEventListener("click", lightmode);
+            x.addEventListener("click", darkmode);
+            }
 
-                            function darkmode(){
+        function darkmode(){
 
-                                y.style.backgroundColor = "black";
-                                x.innerHTML = "Light mode";
-                                x.removeEventListener("click", darkmode);
-                                x.addEventListener("click", lightmode);
-                            }
+            y.style.backgroundColor = "black";
+            x.innerHTML = "Light mode";
+            x.removeEventListener("click", darkmode);
+            x.addEventListener("click", lightmode);
+        }
 
-                        </script>
+    </script>
                     </div>
 
                 {% endblock %}
